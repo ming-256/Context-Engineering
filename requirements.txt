@@ -1,0 +1,8 @@
+# Manus Agent - AI Orchestration Layer
+# No external dependencies required for basic functionality
+# Python 3.8+ required
+
+# Optional dependencies for enhanced features:
+# - For AI integration (future): openai, anthropic
+# - For advanced formatting: markdown, rich
+# - For testing: pytest, pytest-cov
