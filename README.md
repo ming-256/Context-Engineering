@@ -23,8 +23,10 @@ This orchestration layer breaks down complex tasks into manageable phases, track
 .
 ├── file_manager.py      # Handles plan.md, notes.md, and deliverable.md
 ├── manus_agent.py       # Core orchestration agent
+├── cli.py               # Command-line interface
 ├── main.py              # Full example with custom callbacks
 ├── example_simple.py    # Simple usage example
+├── example_advanced.py  # Advanced example with detailed workflow
 ├── requirements.txt     # Python dependencies (none required for basic usage)
 └── output/             # Generated files (plan.md, notes.md, deliverable.md)
 ```
@@ -40,7 +42,27 @@ cd Context-Engineering
 
 ## Quick Start
 
-### Basic Usage
+### Using the CLI
+
+The easiest way to get started is with the command-line interface:
+
+```bash
+# Basic usage - creates a plan
+python cli.py --task "Build a REST API"
+
+# Automatic execution with default callbacks
+python cli.py --task "Build a REST API" --auto
+
+# Custom phases
+python cli.py --task "Design a system" --phases "Research" "Design" "Implement" "Test" --auto
+
+# Custom output directory
+python cli.py --task "Create a web app" --output-dir my_project --auto
+```
+
+### Using the Python API
+
+#### Basic Usage
 
 ```python
 from manus_agent import ManusAgent
@@ -62,11 +84,17 @@ agent.generate_deliverable()
 ### Run the Examples
 
 ```bash
+# Command-line interface (easiest way)
+python cli.py --task "Build a web app" --auto
+
 # Full example with custom phases and callbacks
 python main.py
 
 # Simple example
 python example_simple.py
+
+# Advanced example with detailed workflow
+python example_advanced.py
 ```
 
 Both examples will create an `output` directory with three files:
